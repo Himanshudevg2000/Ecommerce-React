@@ -8,7 +8,7 @@ const Header = ()=> {
         <Link className={classes.links} to='/home'>Home</Link>
         <Link className={classes.links} to='/store'>Store</Link>
         <Link className={classes.links} to='/about'>About</Link>
-        {/* <Home/> */}
+        <button className={classes.cartbtn}>Cart</button>
         </div>
     )
 }
