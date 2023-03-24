@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import classes from './ProductList.module.css'
 
 const ProductList = (props) => {
@@ -27,26 +27,27 @@ const ProductList = (props) => {
         }
     ]
 
-    return (
-        <>
-            {productsArr.map((item) => (
-                <div className={classes.stylediv}>
+    const ItemList = productsArr.map((item) => (
+        <div className={classes.stylediv}>
 
-                    <div className={classes.mainDIv}>
-                        <div className={classes.title}>
-                            <span>{item.title}</span>
-                        </div>
-                        <div className={classes.img}>
-                            <img src={item.imageUrl} alt={item.title} />
-                        </div>
-                        <div className={classes.pricebtn}>
-                            <span> {item.price} Rs</span>
-                            <button className={classes.addBtn}>Add to Cart</button>
-                        </div>
-                    </div>
+            <div className={classes.mainDIv}>
+                <div className={classes.title}>
+                    <span>{item.title}</span>
                 </div>
-            ))}
-        </>
+                <div className={classes.img}>
+                    <img src={item.imageUrl} alt={item.title} />
+                </div>
+                <div className={classes.pricebtn}>
+                    <span> {item.price} Rs</span>
+                    <button className={classes.addBtn}>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    ))
+
+
+    return (
+        <Fragment> {ItemList} </Fragment>
     )
 }
 

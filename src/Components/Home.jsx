@@ -1,18 +1,28 @@
-import React,{Fragment} from "react";
+import React, { Fragment, useState } from "react";
 import Header from "./Header";
 import ProductList from "./ProductList";
+import Cart from "./Cart/Cart";
 import classes from './Home.module.css'
 
-const Home = ()=> {
+const Home = (props) => {
 
-    return(
+    const [showCart, setShowCart] = useState(false);
+
+    const showCartHandler = () => {
+        console.log("showcartHandler")
+        setShowCart(true);
+    };
+
+    const hideCartHandler = () => {
+        setShowCart(false);
+    };
+
+
+    return (
         <Fragment>
-            <Header/>
-            <div className={classes.heading}>
-                <h1>THE GENERICS</h1>
-            </div>
-            <ProductList/>
-            {/* <Product products={productsArr} /> */}
+            {showCart && <Cart onHideCart={hideCartHandler} />}
+            <Header onShowCart={showCartHandler} />
+            <ProductList />
         </Fragment>
     )
 }

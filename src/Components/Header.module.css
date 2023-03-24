@@ -1,26 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .header{
     background-color: black;
     padding: 1rem;
+    top: 0%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .links{
     margin: 0 160px;
     color: white;
     text-decoration: none;
-}
-
-.cartbtn{
-    background-color: red;
-    color: white;
-    padding: 0.6rem;
-    width: 80px;
-    cursor: pointer;
-    border: 1px solid red;
-    border-radius: 15px;
-}
-
-.cartbtn:hover{
-    font-weight: bold;
-    border: 1px solid darkred;
-    background-color: darkred;
 }

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import classes from './Footer.module.css'
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
                     ©Copyright 2023, The Generics | All Rights Reserved
                 </h4>
             </div>
-            <div >
+            <div className={classes.imgtag}>
                 <a href="https://github.com/" >
                     <img
                         src="https://www.bing.com/th?id=OIP.ckeUFk-yid0vfWnd56w7wAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"

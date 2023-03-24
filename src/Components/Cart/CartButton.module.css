@@ -1,0 +1,16 @@
+
+.cartbtn{
+    background-color: red;
+    color: white;
+    padding: 0.6rem;
+    width: 80px;
+    cursor: pointer;
+    border: 1px solid red;
+    border-radius: 15px;
+}
+
+.cartbtn:hover{
+    font-weight: bold;
+    border: 1px solid darkred;
+    background-color: darkred;
+}
