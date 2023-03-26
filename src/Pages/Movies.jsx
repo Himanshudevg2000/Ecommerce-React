@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useCallback } from "react";
 import classes from './Movies.module.css'
 
 const Movies = () => {
@@ -6,12 +6,12 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    const fetchMoviesHandler = async () => {
+    
+    const fetchMoviesHandler =  useCallback (async () => {
         setIsLoading(true);
         setError(null)
         try {
-            const response = await fetch('https://swapi.dev/api/film')
+            const response = await fetch('https://swapi.dev/api/films')
 
             if (!response.ok) {
                 throw new Error('Something went wrong')
@@ -35,7 +35,12 @@ const Movies = () => {
         }
         setIsLoading(false)
         // console.log(transformData)
-    }
+    },[])
+
+    useEffect(()=> {
+        fetchMoviesHandler()
+    },[fetchMoviesHandler])
+
 
     const moviesList = movies.map((items) => {
         return (
