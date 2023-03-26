@@ -4,20 +4,36 @@ import classes from './Movies.module.css'
 const Movies = () => {
 
     const [movies, setMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const fetchMoviesHandler = async () => {
-        const response = await fetch('https://swapi.dev/api/films')
-        const data = await response.json()
+        setIsLoading(true);
+        setError(null)
+        try {
+            const response = await fetch('https://swapi.dev/api/film')
 
-        const transformData = data.results.map((movieData) => {
-            return {
-                id: movieData.episode_id,
-                title: movieData.title,
-                url: movieData.url,
-                description: movieData.opening_crawl
+            if (!response.ok) {
+                throw new Error('Something went wrong')
             }
-        });
-        setMovies(transformData)
+
+            const data = await response.json()
+
+            const transformData = data.results.map((movieData) => {
+                return {
+                    id: movieData.episode_id,
+                    title: movieData.title,
+                    releaseDate: movieData.release_date,
+                    description: movieData.opening_crawl,
+                }
+            });
+            setMovies(transformData)
+            setIsLoading(false);
+        }
+        catch (error) {
+            setError(error.message)
+        }
+        setIsLoading(false)
         // console.log(transformData)
     }
 
@@ -26,7 +42,7 @@ const Movies = () => {
             <div className={classes.maindiv}>
                 <ul className={classes.items} > {items.id} </ul>
                 <ul className={classes.items} > {items.title} </ul>
-                <ul className={classes.items} > {items.url} </ul>
+                <ul className={classes.items} > {items.releaseDate} </ul>
                 <ul className={classes.items} > {items.description} </ul>
             </div>
         )
@@ -40,7 +56,9 @@ const Movies = () => {
             </section>
 
             <div>
-                {moviesList}
+                {!isLoading && moviesList}
+                {isLoading && <p className={classes.maindiv}>Loading.....</p>}
+                {!isLoading && error && <p>{error}</p>}
             </div>
 
         </Fragment>
