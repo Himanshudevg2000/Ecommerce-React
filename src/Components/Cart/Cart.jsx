@@ -12,11 +12,14 @@ const Cart = (props) => {
     const Products = cartCtx.items
     return (
         <Modal onHideCart={props.onHideCart}>
-            <div className={classes.carthead}>
+            {/* <div className={classes.carthead}>
                 <span className={classes.head}>Title</span>
                 <span className={classes.head}>Price</span>
                 <span className={classes.head}>Image</span>
                 <span className={classes.head}>Quantity</span>
+            </div> */}
+            <div className={classes.cart}>
+                <h2>Cart</h2>
             </div>
             <div className={classes.cart}>
                 <CartList products={Products} />
