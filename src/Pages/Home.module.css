@@ -1,0 +1,46 @@
+.container{
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px 30px;
+}
+
+.maindiv{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container h2{
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.touritem{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.tourdate{
+    width: 12%;
+}
+
+.tourplace{
+    width: 25%;
+    color:#777;
+}
+
+.tourspecplace{
+    width: 53%;
+    color: #777;
+}
+
+.buybtn{
+    padding: 0.5rem;
+    background-color:skyblue;
+    border-radius: 10px;
+    border: 1px solid skyblue;
+    color: white;
+    cursor: pointer;
+}

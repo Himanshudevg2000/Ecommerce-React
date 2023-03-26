@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Products from "./Products";
 
-const Home = (props) => {
+const Store = (props) => {
     return (
         <Fragment>
             <Products />
@@ -9,4 +9,4 @@ const Home = (props) => {
     )
 }
 
-export default Home;
+export default Store;
