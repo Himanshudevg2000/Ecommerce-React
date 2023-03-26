@@ -29,7 +29,6 @@ const Products = () => {
         }
     ]
 
-
     const products = productsArr.map((product)=> {
         return (
             <ProductList products={product} />

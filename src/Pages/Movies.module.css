@@ -1,0 +1,21 @@
+.maindiv{
+    background-color: lightgray;
+    margin: 0 120px;
+    padding: 0;
+    display: flex;
+    border-bottom: 1px solid;
+}
+
+.items{
+    padding: 1rem;
+}
+
+.heading{
+    background-color: black;
+    color: white;
+    margin: 0 120px;
+}
+
+.heading span{
+    padding: 0 10px;
+}

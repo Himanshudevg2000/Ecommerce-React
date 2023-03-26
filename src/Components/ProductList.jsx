@@ -19,7 +19,7 @@ const ProductList = (props) => {
         <div className={classes.stylediv}>
             <div className={classes.mainDIv}>
                 <div className={classes.title}>
-                <Link to={productId}>{props.products.title}</Link> 
+                <Link className={classes.title}  to={productId}>{props.products.title}</Link> 
                 </div>
                 <div className={classes.img}>
                     <img src={props.products.imageUrl} alt={props.products.title} />
