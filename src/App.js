@@ -1,16 +1,19 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import Home from './Components/Home';
 import Footer from './Components/Footer';
+import CartProvider from './Store/CartProvider';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 function App() {
 
   return (
-    <BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
       <Home/>
       <Footer />
-    </BrowserRouter>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

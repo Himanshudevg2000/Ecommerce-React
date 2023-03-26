@@ -1,53 +1,35 @@
-import React, { Fragment } from 'react'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import classes from './ProductList.module.css'
+import CartContext from '../Store/Cart-context'
 
 const ProductList = (props) => {
 
+    const cartCtx = useContext(CartContext);
 
-    const productsArr = [
-        {
-            title: 'Colors',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-        },
-        {
-            title: 'Black and white Colors',
-            price: 50,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-        },
-        {
-            title: 'Yellow and Black Colors',
-            price: 70,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-        },
-        {
-            title: 'Blue Color',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
-        }
-    ]
+    const addItemsToCart = (event) => {
+        event.preventDefault();
+        cartCtx.addItem({...props.products, quantity: 1});
+        console.log("addItems", cartCtx);
+    }
 
-    const ItemList = productsArr.map((item) => (
+    let productId = `products/${props.products.id}`
+
+    return (
         <div className={classes.stylediv}>
-
             <div className={classes.mainDIv}>
                 <div className={classes.title}>
-                    <span>{item.title}</span>
+                <Link to={productId}>{props.products.title}</Link> 
                 </div>
                 <div className={classes.img}>
-                    <img src={item.imageUrl} alt={item.title} />
+                    <img src={props.products.imageUrl} alt={props.products.title} />
                 </div>
                 <div className={classes.pricebtn}>
-                    <span> {item.price} Rs</span>
-                    <button className={classes.addBtn}>Add to Cart</button>
+                    <span> {props.products.price} Rs</span>
+                    <button className={classes.addBtn} onClick={addItemsToCart} >Add to Cart</button>
                 </div>
             </div>
         </div>
-    ))
-
-
-    return (
-        <Fragment> {ItemList} </Fragment>
     )
 }
 

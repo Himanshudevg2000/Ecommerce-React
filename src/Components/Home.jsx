@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Header from "./Header";
-import ProductList from "./ProductList";
+import Products from "./Products";
 import Cart from "./Cart/Cart";
 import classes from './Home.module.css'
 
@@ -22,7 +22,7 @@ const Home = (props) => {
         <Fragment>
             {showCart && <Cart onHideCart={hideCartHandler} />}
             <Header onShowCart={showCartHandler} />
-            <ProductList />
+            <Products />
         </Fragment>
     )
 }

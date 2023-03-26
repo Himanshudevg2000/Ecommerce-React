@@ -1,41 +1,55 @@
-import { Fragment } from "react";
-// import classes from './Cart.module.css';
+import { Fragment, useContext } from "react";
+import classes from './Cart.module.css';
+import CartContext from "../../Store/Cart-context";
 
 const CartList = (props) => {
 
-    const cartElements = [
-        {
-            title: 'Colors',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-            quantity: 2,
-        },
-        {
-            title: 'Black and white Colors',
-            price: 50,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-            quantity: 3,
-        },
-        {
-            title: 'Yellow and Black Colors',
-            price: 70,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-            quantity: 1,
-        }
-    ]
+    const cartCtx = useContext(CartContext);
 
-    const cartlist = cartElements.map((item) => (
-        <div>
-            {console.log(item)}
-            <li>{item.title}</li>
-            <li>{item.price}</li>
-            <li>{item.quantity}</li>
-        </div>
-    ))
+    const removeItemFromCart = (event) => {
+        cartCtx.removeItem(event.target.id);
+    }
+
+    let totalAmount = 0;
+
+    const ItemList = props.products.map((product) => {
+        const increaseQty = event => {
+            cartCtx.increaseQty(event.target.id);
+        }
+
+        const decreaseQty = event => {
+            cartCtx.decreaseQty(event.target.id);
+        }
+        totalAmount += product.price * product.quantity;
+        return (
+            <ul className={classes['cart-items']}>
+                {console.log(cartCtx)}
+                {
+                    // cartElements.map((item) => (
+                    <div id={product.title}>
+                        <li>
+                            <span className={classes.space} >{product.title}</span>
+                            <span className={classes.space} >{product.price}</span>
+                            <span className={classes.space} > <img src={product.imageUrl} alt={product.title} width="50px" /></span>
+                            <span className={classes.space} >{product.quantity}</span>
+                            <button className={classes.space} onClick={increaseQty} >+</button>
+                            <button className={classes.space} onClick={decreaseQty} >-</button>
+                            <span> <button id={product.title} onClick={removeItemFromCart}  >remove</button> </span>
+                        </li>
+                    </div>
+                    // ))
+                }
+            </ul >
+        )
+
+    })
 
     return (
         <Fragment>
-            {cartlist}
+            {ItemList}{" "}
+            <div>
+                <span>TotalAmount: {totalAmount}</span>
+            </div>
         </Fragment>
     )
 }
