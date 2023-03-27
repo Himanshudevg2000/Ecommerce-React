@@ -9,15 +9,15 @@ const Movies = () => {
     const [title, setTitle] = useState("");
     const [openingArea, setOpeningArea] = useState("");
     const [releaseDate, setReleaseDate] = useState("");
-    const [addData,setAddData] = useState(false);
+    const [addData, setAddData] = useState(false);
 
     const submitHandler = (e) => {
         e.preventDefault();
         // console.log(title,openingArea,releaseDate)
         setAddData(true);
-        // setTitle("")
-        // setOpeningArea("")
-        // setReleaseDate("")
+        setTitle("")
+        setOpeningArea("")
+        setReleaseDate("")
     }
 
     const fetchMoviesHandler = useCallback(async () => {
@@ -67,16 +67,6 @@ const Movies = () => {
     })
     // console.log(data)
 
-    const formData = () => {
-        return (
-            <div className={classes.maindiv}>
-                <ul className={classes.items} > {title} </ul>
-                <ul className={classes.items} > {openingArea} </ul>
-                <ul className={classes.items} > {releaseDate} </ul>
-            </div>
-        )
-    }
-
     return (
         <Fragment>
             <form className={classes.form} onSubmit={submitHandler} >
@@ -90,7 +80,11 @@ const Movies = () => {
             </section>
 
             <div>
-                {!addData && formData}
+                {addData && <div className={classes.maindiv}>
+                    <ul className={classes.items} > {title} </ul>
+                    <ul className={classes.items} > {openingArea} </ul>
+                    <ul className={classes.items} > {releaseDate} </ul>
+                </div>}
                 {!isLoading && moviesList}
                 {isLoading && <p className={classes.maindiv}>Loading.....</p>}
                 {!isLoading && error && <p>{error}</p>}
