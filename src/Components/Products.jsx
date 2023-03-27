@@ -5,37 +5,37 @@ const Products = () => {
     const productsArr = [
         {
             id: 1,
-            title: 'Colors',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+            title: 'Purple tshirt',
+            price: 549,
+            imageUrl: 'https://images.bewakoof.com/t1080/men-s-purple-john-wick-graphic-printed-t-shirt-584908-1679395893-1.jpg',
         },
         {
             id: 2,
-            title: 'Black and white Colors',
-            price: 50,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+            title: 'White tshirt',
+            price: 500,
+            imageUrl: 'https://images.bewakoof.com/t1080/men-s-white-marvel-t-shirt-390747-1679048273-1.jpg',
         },
         {
             id: 3,
-            title: 'Yellow and Black Colors',
-            price: 70,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+            title: 'Black Color tshirt',
+            price: 450,
+            imageUrl: 'https://images.bewakoof.com/t1080/certified-troublemakers-half-sleeve-t-shirt-tjl-black-287865-1679048495-1.jpg',
         },
         {
             id: 4,
-            title: 'Blue Color',
-            price: 100,
-            imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+            title: 'Gray Color tshirt',
+            price: 600,
+            imageUrl: 'https://images.bewakoof.com/t1080/men-s-brown-one-punch-man-graphic-printed-oversized-t-shirt-583495-1679034778-1.jpg',
         }
     ]
 
-    const products = productsArr.map((product)=> {
+    const products = productsArr.map((product) => {
         return (
             <ProductList products={product} />
         )
     });
 
-    return(
+    return (
         <div>{products}</div>
     )
 }

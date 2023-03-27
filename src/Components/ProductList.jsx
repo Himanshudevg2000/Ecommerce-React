@@ -9,24 +9,26 @@ const ProductList = (props) => {
 
     const addItemsToCart = (event) => {
         event.preventDefault();
-        cartCtx.addItem({...props.products, quantity: 1});
+        cartCtx.addItem({ ...props.products, quantity: 1 });
         console.log("addItems", cartCtx);
     }
 
     let productId = `products/${props.products.id}`
 
     return (
-        <div className={classes.stylediv}>
-            <div className={classes.mainDIv}>
-                <div className={classes.title}>
-                <Link className={classes.title}  to={productId}>{props.products.title}</Link> 
-                </div>
-                <div className={classes.img}>
-                    <img src={props.products.imageUrl} alt={props.products.title} />
-                </div>
-                <div className={classes.pricebtn}>
-                    <span> {props.products.price} Rs</span>
-                    <button className={classes.addBtn} onClick={addItemsToCart} >Add to Cart</button>
+        <div className={classes.headdiv}>
+            <div className={classes.stylediv}>
+                <div className={classes.mainDIv}>
+                    <div className={classes.title}>
+                        <Link className={classes.title} to={productId}>{props.products.title}</Link>
+                    </div>
+                    <div className={classes.img}>
+                        <img src={props.products.imageUrl} alt={props.products.title} width='250px' />
+                    </div>
+                    <div className={classes.pricebtn}>
+                        <span> {props.products.price} Rs</span>
+                        <button className={classes.addBtn} onClick={addItemsToCart} >Add to Cart</button>
+                    </div>
                 </div>
             </div>
         </div>

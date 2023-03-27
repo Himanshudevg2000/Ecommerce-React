@@ -1,0 +1,32 @@
+.maindiv{
+    display: flex;
+}
+
+.detailimages{
+    height: 8rem;
+    width: 9rem;
+    display: flex;
+    flex-direction:column;
+    cursor: pointer;
+}
+
+.enlarged{
+    /* margin-top: 0rem; */
+    margin: 0 25%;
+    /* height: 25rem; */
+    width: 35rem;
+    position: relative;
+}
+
+.enlargedimage{
+    width: 35rem;
+}
+
+.pics{
+    margin: 1rem;
+    border: 2px solid black;
+}
+
+.heading{
+    text-align: center;
+}
