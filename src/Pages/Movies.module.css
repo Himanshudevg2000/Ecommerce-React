@@ -19,3 +19,77 @@
 .heading span{
     padding: 0 10px;
 }
+
+.form{
+    background-color: lightgray;
+    display: flex;
+    margin: 0 10vh;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+}
+
+.form input{
+    display:block;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 100vh;
+    border: 2px solid;
+    margin: 10px 0;
+}
+
+.form textarea{
+    display:block;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 15px;
+    width: 100vh;
+    border: 2px solid;
+}
+
+.form button{
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    width: 100vh;
+}
+
+.form button:hover{
+    font-weight: bold;
+    color: black;
+    background-color: steelblue;
+    /* border: 2px solid steelblue; */
+}
+
+.buttonsection{
+    /* background-color: lightblue; */
+    padding: 1rem;
+}
+
+.buttonsection button{
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: steelblue;
+    color: white;
+    cursor: pointer;
+    width: 50vh;
+}
+
+.buttonsection button:hover{
+    color: white;
+    background-color: black;
+}

@@ -6,8 +6,21 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    
-    const fetchMoviesHandler =  useCallback (async () => {
+    const [title, setTitle] = useState("");
+    const [openingArea, setOpeningArea] = useState("");
+    const [releaseDate, setReleaseDate] = useState("");
+    const [addData,setAddData] = useState(false);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        // console.log(title,openingArea,releaseDate)
+        setAddData(true);
+        // setTitle("")
+        // setOpeningArea("")
+        // setReleaseDate("")
+    }
+
+    const fetchMoviesHandler = useCallback(async () => {
         setIsLoading(true);
         setError(null)
         try {
@@ -35,11 +48,11 @@ const Movies = () => {
         }
         setIsLoading(false)
         // console.log(transformData)
-    },[])
+    }, [])
 
-    useEffect(()=> {
+    useEffect(() => {
         fetchMoviesHandler()
-    },[fetchMoviesHandler])
+    }, [fetchMoviesHandler])
 
 
     const moviesList = movies.map((items) => {
@@ -54,13 +67,30 @@ const Movies = () => {
     })
     // console.log(data)
 
+    const formData = () => {
+        return (
+            <div className={classes.maindiv}>
+                <ul className={classes.items} > {title} </ul>
+                <ul className={classes.items} > {openingArea} </ul>
+                <ul className={classes.items} > {releaseDate} </ul>
+            </div>
+        )
+    }
+
     return (
         <Fragment>
-            <section>
+            <form className={classes.form} onSubmit={submitHandler} >
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
+                <textarea type="textarea" value={openingArea} onChange={(e) => setOpeningArea(e.target.value)} placeholder="Opening Text" />
+                <input type="date" value={releaseDate} onChange={(e) => setReleaseDate(e.target.value)} placeholder="Releasedate" />
+                <button type='submit'>Add</button>
+            </form>
+            <section className={classes.buttonsection}>
                 <button onClick={fetchMoviesHandler} >Fetch Movies</button>
             </section>
 
             <div>
+                {!addData && formData}
                 {!isLoading && moviesList}
                 {isLoading && <p className={classes.maindiv}>Loading.....</p>}
                 {!isLoading && error && <p>{error}</p>}
