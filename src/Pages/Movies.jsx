@@ -82,8 +82,8 @@ const Movies = () => {
             <div>
                 {addData && <div className={classes.maindiv}>
                     <ul className={classes.items} > {title} </ul>
-                    <ul className={classes.items} > {openingArea} </ul>
                     <ul className={classes.items} > {releaseDate} </ul>
+                    <ul className={classes.items} > {openingArea} </ul>
                 </div>}
                 {!isLoading && moviesList}
                 {isLoading && <p className={classes.maindiv}>Loading.....</p>}

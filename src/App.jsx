@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import CartProvider from './Store/CartProvider';
 import About from './Pages/About';
 import Home from './Pages/Home';
+import Contact from './Pages/Contact';
 import Movies from './Pages/Movies';
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/store" element={<Store />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
       </Routes>
       <Footer />
     </CartProvider>

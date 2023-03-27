@@ -12,6 +12,7 @@ const Header = (props) => {
                 <Link className={classes.links} to='/store'>Store</Link>
                 <Link className={classes.links} to='/about'>About</Link>
                 <Link className={classes.links} to='/movies'>Movies</Link>
+                <Link className={classes.links} to='/contact'>Contact</Link>
                 <CartButton onClickCartBtn={props.onShowCart} />
             </header>
         </Fragment>
