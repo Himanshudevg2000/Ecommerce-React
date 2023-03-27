@@ -18,6 +18,11 @@
     /* border-bottom: 0.1rem solid red; */
 }
 
+.header ul {
+    display: inline-flex;
+    align-items: center;
+}
+
 
 .links{
     margin: 0 40px;
@@ -27,4 +32,14 @@
     /* width: 14%; */
     /* text-align: center;
     align-items: center; */
+}
+
+.logoutbtn{
+    margin: 0 40px;
+    padding: 0.5rem;
+    background-color: gray;
+    border: 2px solid gray;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
 }

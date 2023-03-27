@@ -4,43 +4,31 @@
     padding: 20px 30px;
 }
 
-.maindiv{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 .container h2{
+    align-items: center;
     text-align: center;
-    padding: 20px;
-    font-size: 30px;
 }
 
-.touritem{
+.Products{
     display: flex;
-    padding: 10px;
-    border-bottom: 1px solid black;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.tourdate{
-    width: 12%;
+.Products div{
+    margin: 30px;
 }
 
-.tourplace{
-    width: 25%;
-    color:#777;
+.Products div h3{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    color: black;
+    margin-bottom: 15px;
 }
 
-.tourspecplace{
-    width: 53%;
-    color: #777;
-}
-
-.buybtn{
-    padding: 0.5rem;
-    background-color:skyblue;
-    border-radius: 10px;
-    border: 1px solid skyblue;
-    color: white;
-    cursor: pointer;
+.album{
+    overflow: hidden;
+    box-shadow: 2px px 2px 2px rgba(0,0,0,0.5);
 }

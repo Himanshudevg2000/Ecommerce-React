@@ -10,6 +10,9 @@ import Home from './Pages/Home';
 import Contact from './Pages/Contact';
 import Movies from './Pages/Movies';
 import ProductDetail from './Pages/ProductDetails';
+import PrivateComponent from './Components/PrivateComponent/PrivateComponent';
+import SignUp from './Pages/SignUp';
+import Login from './Pages/Login';
 import './App.css';
 
 function App() {
@@ -28,15 +31,21 @@ function App() {
 
   return (
     <CartProvider>
-      <Header onShowCart={showCartHandler} />
-      {showCart && <Cart onHideCart={hideCartHandler} />}
+          <Header onShowCart={showCartHandler} />
+          {showCart && <Cart onHideCart={hideCartHandler} />}
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/store" element={<Store />} ></Route>
-        <Route path="/store/products/:productId" element={<ProductDetail />} ></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
+        <Route element={<PrivateComponent />} >
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/store" element={<Store />} ></Route>
+          <Route path="/store/products/:productId" element={<ProductDetail />} ></Route>
+          <Route path="/movies" element={<Movies />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Route>
+
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login/>} />
+
       </Routes>
       <Footer />
     </CartProvider>
